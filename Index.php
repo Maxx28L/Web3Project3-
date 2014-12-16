@@ -1,46 +1,69 @@
+<?php
+session_start();
+require("config.php");
+
+if(isset($_GET['page'])){
+	$pages=array("product","cart");
+	if(in_array($_GET['page'],$pages)){
+		$page=$_GET['page'];
+	}else{
+		$page="product";
+	}
+}else{
+	$page="product";
+}
+?>
 <html>
 <head>
- <?php
-	include("config.php");
- ?>
 </head>
 <body>
-  <div id="wrap">
-	<h1>Music Store</h1>
-	
-		<?php
-			$query = "Select * FROM music ORDER BY Album";
-			$result = $conn->query($query);
-			
-			if ($result->num_rows > 0) {
-				 // output data of each row
-				 
-				echo '<table id="musicTable">'; 
-				echo "<tr><th>Album</th><th>Artist</th><th>Description</th><th>Genre</th><th>Format</th><th>Quantity</th><th>Price</th></tr>"; 
-				 
-				 while($row = $result->fetch_assoc()) {
-					  echo "<tr><td>"; 
-					  echo $row['Album'];
-					  echo "</td><td>";   
-					  echo $row['Artist'];
-					  echo "</td><td>";    
-					  echo $row['Description'];
-					  echo "</td><td>";  
-					  echo $row['Genre'];
-					  echo "</td><td>"; 
-					  echo $row['Format'];
-					  echo "</td><td>";  
-					  echo $row['Quantity'];
-					  echo "</td><td>";  					  
-					  echo $row['Price'];
-					  echo "</td></tr>"; 
-					  
-				 }
-			} else {
-				 echo "0 results";
-			}
-					echo "</table>";  
+<div ID="container">
+      <div ID="main">
+        <?php require($page . ".php"); ?>
+      </div>
+      <div ID="sidebar">
+        <h1>Cart</h1>
+        <table>
+        	<tr>
+            	<th>Product/Album</th>
+                <th>Quantity</th>
+            </tr>
+        <?php
+				if(isset($_SESSION['cart'])){
+					$sql = "SELECT * FROM music WHERE ID IN(";
+					foreach($_SESSION['cart'] as $ID => $value){
+						$sql .=$ID. ",";
+					}
+					$sql=substr($sql,0,-1).") ORDER BY Album";
+					$query = mysqli_query($conn, $sql);
+					if(!empty($query)){
+						while($row = mysqli_fetch_array($query)){
+			?>
+            <tr>
+        		<td><?php echo $row['Album']; ?></td><td><?php echo $_SESSION['cart'][$row['ID']]['Quantity']; ?></td>
+			</tr>
+        	<?php
+					}
+					}else{
+			?>
+            
+					<tr><td colspan="3"><?php echo "<i>Your cart is empty."; ?></td></tr>
+            <?php
+				}
+			?>
+            
+        
+        <tr><td colspan="3"><a href="index.php?page=cart">Go To Cart</a></td></tr>
+        <?php
+				}else{
 		?>
+				<tr><td><?php echo "Your Cart is Empty"; ?></td></tr>
+        <?php
+				}
+		?>
+        </table>
   </div>
+ 
+</div>
 </body>
 </html>
