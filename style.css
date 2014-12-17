@@ -1,0 +1,71 @@
+/* CSS Document */
+body{
+	font:Verdana;
+	font-size:12px;
+	background:#393939;
+}
+
+#container{
+	width:80%;
+	margin:150px auto;
+	padding:10px;
+	background-color:#6e6e6e;
+	overflow:hidden;
+}
+
+#main{
+	width:960px auto;
+	float:left;
+}
+#sidebar{
+	width:300px;
+	float:right;
+}
+
+a{
+	color:#ff9900;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+h1, h2{
+	margin-bottom:15px;
+}
+h1{
+	font-size:28px;
+	color: #ff9900;
+}
+h2{
+	font-size:20px;
+}
+
+#main table{
+	width:960px;
+	overflow:hidden;
+	
+}
+#sidebar table{
+	width:300px;
+	overflow:hidden;
+}
+
+#main table th, #sidebar table th{
+	padding:10px;
+	background-color:#ff5a09;
+	color:#ffffff;
+	font-size: 16px;
+	text-align:center;
+	font-weight:bold;
+}
+table td{
+	padding:10px;
+	padding-bottom:20px;
+	color:#fff;
+	text-align: center;
+	font-size:14px;
+	width: 60px;
+}
+#main tr, #sidebar tr{
+	background-color:#393939;
+}

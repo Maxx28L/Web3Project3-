@@ -16,6 +16,8 @@ if(isset($_GET['page'])){
 
 <html>
 <head>
+<link href="reset.css" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
 <title>Shopping Cart</title>
 </head>
 <body>
