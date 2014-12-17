@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <?php
 	if(isset($_POST['submit'])){
 		if(!empty($_SESSION['cart'])){
@@ -11,7 +13,10 @@
 		}
 	}
 ?>
-
+<head>
+<meta name="robots" content="noindex">
+</head>
+<body>
 <h1>View Cart || <a href="index.php?page=product">Products</a></h1>
 <form method="post" action="index.php?page=cart">
 <table>
@@ -56,3 +61,5 @@
 <br/><button type="submit" name="submit">Update Cart</button>
 </form>
 <br/><p>To remove an item, set quantity to 0.</p>
+<body>
+</html>

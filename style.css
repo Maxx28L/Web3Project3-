@@ -1,15 +1,16 @@
 /* CSS Document */
 body{
 	font:Verdana;
-	font-size:12px;
+	font-size:16px;
+	color: #ffffff;
 	background:#393939;
+	background-image: url('images/bg.png');
 }
 
 #container{
 	width:80%;
 	margin:150px auto;
 	padding:10px;
-	background-color:#6e6e6e;
 	overflow:hidden;
 }
 
@@ -43,14 +44,16 @@ h2{
 #main table{
 	width:960px;
 	overflow:hidden;
+	background-image: url('images/black.png');
 	
 }
 #sidebar table{
 	width:300px;
 	overflow:hidden;
+	background-image: url('images/black.png');
 }
 
-#main table th, #sidebar table th{
+table th{
 	padding:10px;
 	background-color:#ff5a09;
 	color:#ffffff;
@@ -65,7 +68,9 @@ table td{
 	text-align: center;
 	font-size:14px;
 	width: 60px;
+	background-image: url('images/black.png');
 }
-#main tr, #sidebar tr{
+tr{
 	background-color:#393939;
+	background-image: url('images/black.png');
 }

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 session_start();
 require("config.php");
@@ -18,6 +19,7 @@ if(isset($_GET['page'])){
 <head>
 <link href="reset.css" rel="stylesheet" type="text/css">
 <link href="style.css" rel="stylesheet" type="text/css">
+<meta name="robots" content="noindex">
 <title>Shopping Cart</title>
 </head>
 <body>

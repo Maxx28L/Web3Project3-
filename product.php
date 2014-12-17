@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <?php
 if(isset($_GET['action']) && $_GET['action']=="add"){
 	$ID=intval($_GET['ID']);
@@ -15,7 +17,16 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 	}
 }
 ?>
-<h1>Products</h1>
+<head>
+<meta name="robots" content="noindex">
+</head>
+<body>
+<h1>Music</h1>
+	<form action="search.php" method="get">
+		<input placeholder="Search for an Artist..."type="text" name="s" id="input">
+		<input type="submit" name="search" value="Search">
+	</form>
+	<br>
 <?php
 if(isset($message)){
 	echo "<h2>$message</h2>";	
@@ -48,3 +59,5 @@ if(isset($message)){
 	}
 	?>
 </table>
+</body>
+</html>
