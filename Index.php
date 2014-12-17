@@ -13,8 +13,10 @@ if(isset($_GET['page'])){
 	$page="product";
 }
 ?>
+
 <html>
 <head>
+<title>Shopping Cart</title>
 </head>
 <body>
 <div ID="container">
