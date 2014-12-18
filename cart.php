@@ -13,11 +13,23 @@
 		}
 	}
 ?>
+<?php
+	if(isset($_POST['shipping3'])){
+		$shipping=18;
+	}
+		else if(isset($_POST['shipping2'])){
+			$shipping=10;
+		}
+		else{
+			$shipping=0;
+		}
+	
+?>
 <head>
 <meta name="robots" content="noindex">
 </head>
 <body>
-<h1>View Cart || <a href="index.php?page=product">Products</a></h1>
+<h1>View Cart || <a href="index.php?page=product">Music</a></h1>
 <form method="post" action="index.php?page=cart">
 <table>
 	<tr>
@@ -37,7 +49,7 @@
 			if(!empty($query)){
 			while($row = mysqli_fetch_array($query)){
 				$subtotal= $_SESSION['cart'][$row['ID']]['Quantity']*$row['Price'];
-				$totalprice += $subtotal;
+				$totalprice += $subtotal + $shipping;
 	?>
 	<tr>
 		<td><?php echo $row['Album']; ?></td>
@@ -54,8 +66,15 @@
     <?php
 			}
 	?>
+		
     <tr>
-    	<td colspan="3">Total Price: <h1><?php echo "$" ."$totalprice". ".00"; ?></h1><td>
+		<td><h2>Choose a shipping method: </h2></td>
+		<td><input type="radio" name="shipping1" value="Free">5-10 standard business days</input></td>
+		<td><input type="radio" name="shipping2" value="2Day">2-Day shipping</input></td>
+		<td><input type="radio" name="shipping3" value="overnight">Overnight shipping</input></td>
+	</tr>
+	<tr>
+    	<td>Total Price: <h1><?php echo "$" ."$totalprice". ".00"; ?></h1><td>
     </tr>
 </table>
 <br/><button type="submit" name="submit">Update Cart</button>

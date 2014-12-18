@@ -9,17 +9,17 @@ body{
 
 #container{
 	width:80%;
-	margin:150px auto;
+	margin:50px auto;
 	padding:10px;
-	overflow:hidden;
+	overflow:auto;
 }
 
 #main{
-	width:960px auto;
+	width:80%;
 	float:left;
 }
 #sidebar{
-	width:300px;
+	width:20%;
 	float:right;
 }
 
@@ -42,14 +42,14 @@ h2{
 }
 
 #main table{
-	width:960px;
-	overflow:hidden;
+	width:70%;
+	overflow:auto;
 	background-image: url('images/black.png');
 	
 }
 #sidebar table{
-	width:300px;
-	overflow:hidden;
+	width:20%;
+	overflow:auto;
 	background-image: url('images/black.png');
 }
 
@@ -67,7 +67,7 @@ table td{
 	color:#fff;
 	text-align: center;
 	font-size:14px;
-	width: 60px;
+	width: 50px;
 	background-image: url('images/black.png');
 }
 tr{
